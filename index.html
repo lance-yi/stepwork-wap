@@ -5,11 +5,11 @@
 <title>计划大师</title>
 <meta name="revisit-after"  content="1 days" />
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-<link rel="stylesheet" type="text/css" href="assets/css/base.css" />
-<link rel="stylesheet" type="text/css" href="assets/css/common.css" />
-<link rel="stylesheet" type="text/css" href="assets/css/style.css" />
-<script type="text/javascript" language="javascript" src="assets/js/zepto.min.js"></script>
-<script type="text/javascript" language="javascript" src="assets/js/dialog.js"></script>
+<link rel="stylesheet" type="text/css" href="./css/base.css" />
+<link rel="stylesheet" type="text/css" href="./css/common.css" />
+<link rel="stylesheet" type="text/css" href="./css/style.css" />
+<script type="text/javascript" language="javascript" src="./js/zepto.min.js"></script>
+<script type="text/javascript" language="javascript" src="./layer_mobile/layer.js"></script>
 </head>
 <style>
 	body{ background:#F5F5F9;}
@@ -28,6 +28,17 @@
 		</div>
     <div class="main">
           <div class="title"><span>20180921-<em>024期</em></span><span>开奖结果-<em>198723</em></span></div>
+          <div>
+            <h3 class="tit">专家预测</h3>
+            <ul id="planeList">
+              <li class="td">
+                <div>12321</div>
+                <div>12321</div>
+                <div>12321</div>
+                <div>12321</div>
+              </li>
+            </ul>
+          </div>
            <table width="100%">
           		<tr><th colspan="4" class="tit"><strong>专家预测</strong></th></tr>
            		<tr class="th">
@@ -122,25 +133,25 @@
         <div class="footNav">
             <ul class="clearfix">
                 <li class="nav_01">
-                    <a href="计划大师.html" class="cur">
+                    <a href="index.html" class="cur">
                         <p class="icon"></p>
                         <p>首页</p>
                     </a>
                 </li>
                 <li class="nav_02">
-                    <a href="充值VIP.html">
+                    <a href="vip.html">
                         <p class="icon"></p>
                         <p>购买VIP</p>
                     </a>
                 </li>
                 <li class="nav_03">
-                    <a href="客服.html" >
+                    <a href="kefu.html" >
                         <p class="icon"></p>
                         <p>客服</p>
                     </a>
                 </li>
                 <li class="nav_04">
-                    <a href="我的.html">
+                    <a href="wode.html">
                         <p class="icon"></p>
                         <p>我的</p>
                     </a>
@@ -180,6 +191,38 @@
 </div>
 <div class="back" style="display: none;"></div>
 <!--弹出层 end-->
-
 </body>
+
+<script src="./js/cookie.js"></script>
+<script src="./js/config.js"></script>
+<script src="./js/base.js"></script>
+<script src="./js/request.js"></script>
+<script>
+  $(function(){
+    console.log(1)
+    var planeList = [];
+    // 获取彩票预测
+    Api.getIndexPlane().then(function (res) {
+      var evalArr = [],
+        htmlStr = "";
+      res.forEach(function (item, index) {
+        evalArr = item.gr_money1.split("\n");
+        planeList[index] = $.extend({
+          list: evalArr
+        }, item);
+      });
+      console.log(planeList)
+      planeList.forEach(function (element, index) {
+        htmlStr += '<li class="item">';
+        element.list.forEach(function (item, _index) {
+          if(_index < 15){
+            htmlStr += '<div class="' + (_index % 2 == 0 ? "th" : "td") + '">' + item + '</div>';
+          }
+        });
+        htmlStr += '</li>';
+      })
+      // $("#planeList").html(htmlStr);
+    });
+  })
+</script>
 </html>
