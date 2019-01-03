@@ -17,12 +17,13 @@
 	.icon-form .icon{width: 30%;}
 	.right{ float:right; color: #ccc;}
 	.detail-pop{height:18rem;}
+  input:disabled{background: #fff;}
 </style>
 
 <body>
   <div class="header clearfix">
     <a class="left" href="javascript:history.go(-1);"><b class="iconfont icon-chevron-copy"></b></a>
-    <span class="center">绑定信息</span>
+    <span class="center">查看绑定信息</span>
   </div>
   <div class="container">
     <div class="main">
@@ -32,9 +33,8 @@
             <li class="clearfix">
               <div class="icon">支付类型
               </div>
-              <div class="input" id="selectType">
-                <span class="text gray">请选择绑定的支付类型</span>
-                <span class="right"><i class="iconfont icon-icon"></i></span>
+              <div class="input">
+                <span class="text gray" id="selectType">请选择住房状况</span>
               </div>
 
             </li>
@@ -53,100 +53,30 @@
               </div>
             </li>
           </ul>
-          <div class="mt20">
-            <a href="javascript:void(0);" id="submitBindInfo" class="btnOrg btnsF16 btn-login">提交</a>
-          </div>
         </div>
       </div>
     </div>
 
   </div>
 
-  <!--弹出层 start-->
-  <div style="display: none" id="payTypePop">
-      <div class="detail-pop">
-        <div class="title"><span class="tit">选择玩法</span><span class="close"><i class="iconfont icon-guanbi"></i></span></div>
-        <dl>
-          <dd onclick="_selectType(1)"><a href="javascript:void(0);">支付宝</a></dd>
-          <dd onclick="_selectType(2)"><a href="javascript:void(0);">微信</a></dd>
-        </dl>
-      </div>
-      <div class="back"></div>
-  </div>
-  <!--弹出层 end-->
 <script src="./js/cookie.js"></script>
 <script src="./js/config.js"></script>
 <script src="./js/base.js"></script>
 <script src="./js/request.js"></script>
 <script>
-  // 选择类型
-  function _selectType(type){
-    $("#selectType .text").data("type",type).text(type == 1 ? "支付宝" : "微信");
-    $("#payTypePop").hide();
-    
-  }
   $(document).ready(function () {
-    // 弹出框
-    $("#selectType").click(function () {
-      $("#payTypePop").show();
-    })
-    // 关闭弹窗
-    $(".title i").click(function (e) { 
-      e.preventDefault();
-      $("#payTypePop").hide();
-    });
-
-
-    var cardType = $("#selectType .text"),
+    var cardType = $("#selectType"),
       cardNumber = $("#cardNumber"),
       realName = $("#realName");
-
     // 重新获取一下用户信息
     Api.getUserInfo();
-        
     // 绑定页面数据
 		var userInfo = Cookies.getJSON("userInfo");
-    console.log(userInfo);
 		if(userInfo.u_bankType > 0){ // 判断是否绑定
 			cardNumber.val(userInfo.u_bankCard).attr("disabled",true)
 			realName.val(userInfo.u_bankName).attr("disabled",true)
-      $("#submitBindInfo").text("已绑定")
-		}else{
-			$("#bangding").show();
-			$("#isBind").hide();
-		}
-
-
-    $("#submitBindInfo").on("click",function () {
-      console.log(cardType.data("type"))
-      if(cardType.data("type") == undefined){
-        CONFIG._showMsg("请选择绑定的支付类型");
-        return;
-      }
-      if(cardNumber.val() == ''){
-        CONFIG._showMsg("账号不能为空!");
-        return;
-      }
-
-      if(!/^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/.test(realName.val())){
-        CONFIG._showMsg("请输入正确的真实姓名");
-        return;
-      }
-
-      Api.bindUserBank(
-        cardNumber.val(),
-        cardType.data("type"),
-        realName.val()
-      ).then(function (res) {
-        CONFIG._showMsg(res.message);
-        Cookies.remove("userInfo");
-        setTimeout(function () {
-          window.location.reload();
-        },1000)
-      })
-
-    })
-      
+			cardType.text(userInfo.u_bankType == 1 ? "支付宝" : "微信")
+		}      
   });
 </script>
 </body>

@@ -340,12 +340,10 @@ var Api = {
         url: Api.gainsLosses,
         param: {
           action: type,
-          page: page
+          page: page,
         },
         callBack:function (res) { 
-          if(res.state == 1){
-            resolve(res);
-          }
+          resolve(res);
         }
       })
     })

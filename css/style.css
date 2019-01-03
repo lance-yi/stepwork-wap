@@ -23,7 +23,7 @@
 /*资金明细*/
 .block-pricelist{}
 .block-pricelist li{ border-bottom: 1px solid #e6e6e6; height:5.5rem; position: relative;}
-.block-pricelist li .det{ font-size: 1.6rem; position: absolute; left:1rem; top:0.5rem;}
+.block-pricelist li .det{ font-size: 1.6rem; position: absolute; left:1rem; top:0.5rem; width: 75%; white-space: nowrap; overflow: hidden;text-overflow: ellipsis; text-align: left;}
 .block-pricelist li .time{ font-size: 1rem; position: absolute; left:1rem; top:3rem; color:#999;}
 .block-pricelist li .price01{ font-size: 1.6rem;position: absolute; right:1rem; top:1.6rem;float: right; font-family: arial; }
 .block-pricelist li .pricein{ color:#E16901;}

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+	<meta charset="UTF-8">
+	<title>资金明细</title>
+	<meta name="revisit-after" content="1 days" />
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<link rel="stylesheet" type="text/css" href="./css/base.css" />
+	<link rel="stylesheet" type="text/css" href="./css/common.css" />
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	<script type="text/javascript" language="javascript" src="./js/zepto.min.js"></script>
+	<script type="text/javascript" language="javascript" src="./js/dropload.min.js"></script>
+	<script type="text/javascript" language="javascript" src="./layer_mobile/layer.js"></script>
+</head>
+<style>
+	body{ background:#fff;}
+	.container { margin: 55px auto 0;}
+</style>
+
+<body>
+	<div class="header clearfix">
+		<a class="left" href="javascript:history.go(-1);"><b class="iconfont icon-chevron-copy"></b></a>
+		<span class="center">资金明细</span>
+	</div>
+	<div class="container">
+		<div class="main">
+			<div class="form-wrap block-pricelist">
+				<ul class="clearfix" id="moneyDetail">
+					<!-- 数据 -->
+				</ul>
+			</div>
+		</div>
+
+	</div>
+	<script type="text/javascript" language="javascript" src="./js/cookie.js"></script>
+	<script type="text/javascript" language="javascript" src="./js/config.js"></script>
+	<script type="text/javascript" language="javascript" src="./js/base.js"></script>
+	<script type="text/javascript" language="javascript" src="./js/request.js"></script>
+	<script>
+		$(document).ready(function () {
+			var page = 0;
+			$('.element').dropload({
+				scrollArea: window,
+				loadDownFn: function (me) {
+					page++;
+					// 拼接HTML
+					var htmlStr = "";
+					Api.getGainsLosses(2, page).then(function (res) {
+						console.log(res);
+						if (res.data.length > 0) {
+							res.data.forEach(function (item, index) {
+								htmlStr +=
+									`<li>
+									<span class="det">${item.mc_remark}</span>
+									<span class="time">${item.mc_addtime}</span>
+									<span class="price01 ${ item.mc_aftermoney > item.mc_beforemoney ? "pricein":""}">${item.mc_aftermoney > item.mc_beforemoney ? "+": "-"}${_Base.formatCurrency(item.mc_changemoney)}</span>
+								</li>`;
+							});
+						} else {
+							// 锁定
+							me.lock();
+							// 无数据
+							me.noData();
+							htmlStr += `<div class="main nodate"><img src="./images/common/nodate.png" alt=""/><span class="txt">暂无数据</span></div>`;
+						}
+						$("#moneyDetail").append(htmlStr);
+						me.resetload();
+					})
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>

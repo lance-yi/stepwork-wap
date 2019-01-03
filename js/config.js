@@ -186,32 +186,30 @@ var CONFIG = {
   // 检查提现金额函数
   _checkDrawMoney: function (dom) {
     if(dom.val() == ''){
-      dom.parent().next().children(".tipTxt").text("请输入提款金额");
+      this._showMsg("请输入提款金额!");
       return false;
     }
     if(isNaN(dom.val())){
-      dom.parent().next().children(".tipTxt").text("请输入正确的金额");
+      this._showMsg("请输入正确的金额!");
       return false;
     }
     if(dom.val() < 0){
-      dom.parent().next().children(".tipTxt").text("提现金额不能低于10元");
+      this._showMsg("提现金额不能低于10元!");
       return false;
     }
     if(dom.val() > Cookies.getJSON("userInfo").u_money){
-      dom.parent().next().children(".tipTxt").text("提现金额不能大于可用余额");
+      this._showMsg("提现金额不能大于可用余额!");
       return false;
     }
-    dom.parent().next().children(".tipTxt").text("");
     return true;
   },
   
   // 检查提现支付密码
   _checkPayWord: function (dom) {
     if(dom.val() == ''){
-      dom.parent().next().children(".tipTxt").text("请输入提款密码");
+      this._showMsg("请输入提款密码!");
       return false;
     }
-    dom.parent().next().children(".tipTxt").text("");
     return true;
   },
 
