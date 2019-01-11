@@ -1,117 +1,113 @@
 <!doctype html>
 <html lang="zh">
+
 <head>
-<meta charset="UTF-8">
-<title>计划大师</title>
-<meta name="revisit-after"  content="1 days" />
-<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-<link rel="stylesheet" type="text/css" href="./css/base.css" />
-<link rel="stylesheet" type="text/css" href="./css/common.css" />
-<link rel="stylesheet" type="text/css" href="./css/style.css" />
-<script type="text/javascript" language="javascript" src="./js/zepto.min.js"></script>
-<script type="text/javascript" language="javascript" src="./layer_mobile/layer.js"></script>
+  <meta charset="UTF-8">
+  <title>计划大师</title>
+  <meta name="revisit-after" content="1 days" />
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="./css/base.css" />
+  <link rel="stylesheet" type="text/css" href="./css/common.css" />
+  <link rel="stylesheet" type="text/css" href="./css/style.css" />
+  <script type="text/javascript" language="javascript" src="./js/zepto.min.js"></script>
+  <script type="text/javascript" language="javascript" src="./layer_mobile/layer.js"></script>
 </head>
 <style>
-	body{ background:#F5F5F9;}
-	.container {margin: 65px auto 70px;}
+  body {
+    background: #F5F5F9;
+  }
+
+  .container {
+    margin: 65px auto 70px;
+  }
+  .cr-main{
+    color: red;
+  }
 </style>
+
 <body>
-<div class="header clearfix">
-      
-       <span class="center">重庆时时彩<i class="iconfont icon-jiantou-xia"></i></span>
-</div>
-<div class="container block-index">
-   <div class="default-list">
-          <ul>
-          	<li><a href="javascript:void(0);"><span class="text">万位杀1码</span></a></li>
-          </ul>
-		</div>
-    <div class="main">
-          <div class="title"><span>20180921-<em>024期</em></span><span>开奖结果-<em>198723</em></span></div>
-           <table width="100%">
-						 <thead>
-							 	<tr><th colspan="4" class="tit"><strong>专家预测</strong></th></tr>
-								 <tr class="th">
-									 <th>期数</th>
-									 <th>玩法</th>
-									 <th>预测号码</th>
-									 <th>预测结果</th>
-								 </tr>
-						 </thead>
-						 <tbody>
-								<tr class="td">
-									<td>097-087期</td>
-									<td>万位杀</td>
-									<td>【1】</td>
-									<td>预测中</td>	
-								</tr>
-						 </tbody>
-           </table>
-        </div>
- </div>
-
-<div class="footer">
-        <div class="footNav">
-            <ul class="clearfix">
-                <li class="nav_01">
-                    <a href="index.html" class="cur">
-                        <p class="icon"></p>
-                        <p>首页</p>
-                    </a>
-                </li>
-                <li class="nav_02">
-                    <a href="vip.html">
-                        <p class="icon"></p>
-                        <p>购买VIP</p>
-                    </a>
-                </li>
-                <li class="nav_03">
-                    <a href="kefu.html" >
-                        <p class="icon"></p>
-                        <p>客服</p>
-                    </a>
-                </li>
-                <li class="nav_04">
-                    <a href="wode.html">
-                        <p class="icon"></p>
-                        <p>我的</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
+  <div class="header clearfix">
+    <span class="center" id="showLotteryPop">重庆时时彩 <i class="iconfont icon-jiantou-xia"></i></span>
+  </div>
+  <div class="container block-index">
+    <div class="default-list">
+      <ul>
+        <li id="showPayGamePop"><a href="javascript:void(0);"><span class="text">万位杀1码</span></a></li>
+      </ul>
     </div>
+    <div class="main">
+      <div class="title"><span id="nowStage">20180921-<em>024期</em></span><span>开奖结果-<em id="nowOpenCode">198723</em></span></div>
+      <table width="100%">
+        <thead>
+          <tr>
+            <th colspan="4" class="tit"><strong>专家预测</strong></th>
+          </tr>
+          <tr class="th">
+            <th>期数</th>
+            <th>玩法</th>
+            <th>预测号码</th>
+            <th>预测结果</th>
+          </tr>
+        </thead>
+        <tbody id="planeList">
+          <tr class="td">
+            <td>097-087期</td>
+            <td>万位杀</td>
+            <td>【1】</td>
+            <td>预测中</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-<!--弹出层 start-->
-<div class="detail-pop" style="display: none;" >
-	<div class="title"><span class="tit">选择玩法</span><span class="close"><i class="iconfont icon-guanbi"></i></span></div>
-	<div class="detail">
-	<dl>
-		<dd><a href="javascript:void(0);">万位杀1码</a></dd>
-		<dd><a href="javascript:void(0);">万位杀1码</a></dd>
-		<dd><a href="javascript:void(0);">万位杀1码</a></dd>
-		<dd><a href="javascript:void(0);">万位杀1码</a></dd>
-		<dd><a href="javascript:void(0);">万位杀1码</a></dd>
-		<dd><a href="javascript:void(0);">万位杀1码</a></dd>
-		<dd><a href="javascript:void(0);">万位杀1码</a></dd>
-		<dd><a href="javascript:void(0);">万位杀1码</a></dd>
-		<dd><a href="javascript:void(0);">万位杀1码</a></dd>
-	</dl>
-	</div>
-</div>
+  <div class="footer">
+    <div class="footNav">
+      <ul class="clearfix">
+        <li class="nav_01">
+          <a href="index.html" class="cur">
+            <p class="icon"></p>
+            <p>首页</p>
+          </a>
+        </li>
+        <li class="nav_02">
+          <a href="vip.html">
+            <p class="icon"></p>
+            <p>购买VIP</p>
+          </a>
+        </li>
+        <li class="nav_03">
+          <a href="kefu.html">
+            <p class="icon"></p>
+            <p>客服</p>
+          </a>
+        </li>
+        <li class="nav_04">
+          <a href="wode.html">
+            <p class="icon"></p>
+            <p>我的</p>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
-<div class="detail-pop" style="display: none;">
-	<div class="title"><span class="tit">选择彩种</span><span class="close"><i class="iconfont icon-guanbi"></i></span></div>
-	<div class="detail">
-	<dl>
-		<dd><a href="javascript:void(0);">重庆时时彩</a></dd>
-		<dd><a href="javascript:void(0);">重庆时时彩</a></dd>
-		<dd><a href="javascript:void(0);">重庆时时彩</a></dd>
-		<dd><a href="javascript:void(0);">重庆时时彩</a></dd>
-	</dl>
-	</div>
-</div>
-<div class="back" style="display: none;"></div>
-<!--弹出层 end-->
+  <!--弹出层 start-->
+  <div class="detail-pop" style="display: none;" id="payGamePop">
+    <div class="title"><span class="tit">选择玩法</span><span class="close"><i class="iconfont icon-guanbi"></i></span></div>
+    <div class="detail">
+      <dl></dl>
+    </div>
+  </div>
+
+  <div class="detail-pop" style="display: none;" id="lotteryPop">
+    <div class="title"><span class="tit">选择彩种</span><span class="close"><i class="iconfont icon-guanbi"></i></span></div>
+    <div class="detail">
+      <dl></dl>
+    </div>
+  </div>
+  <div class="back" style="display: none;"></div>
+  <!--弹出层 end-->
 </body>
 
 <script src="./js/cookie.js"></script>
@@ -119,38 +115,150 @@
 <script src="./js/base.js"></script>
 <script src="./js/request.js"></script>
 <script>
-  $(function(){
-    var planeList = [];
-    // 获取彩票预测
-    Api.getIndexPlane().then(function (res) {
-      var evalArr = [],htmlStr = "",itemArr = [];
-			console.log(res);
-			
-      res.forEach(function (item, index) {
-        evalArr = item.gr_money1.split("\n");
-				evalArr.forEach(function(iItem,iIndex) {
-					itemArr.push(iItem.split(" "));
-				})
-				// itemArr = evalArr.split(" ");
-        // planeList[index] = $.extend({
-        //   list: evalArr
-        // }, item);
+  $(function () {
+    let key = '',gmkey = '';
+    CONFIG._isLoginSuccess();
+
+    Api.getUserInfo();
+    let lotteryPopList = [],
+      payGamePopList = [];
+    // 彩种
+    ;
+    (setLotteryList = function (key) {
+      let htmlStr = "";
+      let itemHtmlStr = "";
+      key = CONFIG._payGameList[0].key;
+      gmkey = CONFIG._payGameList[0].list[0].key;
+      CONFIG._payGameList.forEach(function (items) {
+        htmlStr +=
+          `<dd data-key="${items.key}"><a href="javascript:void(0);">${items.name}</a></dd>`;
+        if (items.key == key) {
+          itemHtmlStr = "";
+          key = items.key;
+          gmkey = items.list[0].key;
+          items.list.forEach(function (item) {
+            itemHtmlStr +=
+              `<dd data-key="${items.key}" data-gmkey="${item.key}"><a href="javascript:void(0);">${item.name}</a></dd>`;
+          })
+        }
       });
-			
-      console.log(evalArr);
-      console.log(itemArr);
-      console.log(planeList)
-      planeList.forEach(function (element, index) {
-        htmlStr += '<li class="item">';
-        element.list.forEach(function (item, _index) {
-          if(_index < 15){
-            htmlStr += '<div class="' + (_index % 2 == 0 ? "th" : "td") + '">' + item + '</div>';
-          }
-        });
-        htmlStr += '</li>';
-      })
-      // $("#planeList").html(htmlStr);
+      $("#showPayGamePop span").html(CONFIG._payGameList[0].list[0].name).data("key",key).data("gmkey",gmkey);
+      $("#lotteryPop dl").html(htmlStr);
+      $("#payGamePop dl").html(itemHtmlStr);
+      GetExpertPlanList(key, gmkey);
+    })();
+
+    // 彩种显示
+    $("#showLotteryPop").click(function (e) {
+      e.preventDefault();
+      $("#lotteryPop").show();
     });
+    
+    // 玩法显示
+    $("#showPayGamePop").click(function (e) {
+      e.preventDefault();
+      $("#payGamePop").show();
+      let key = $("#showPayGamePop span").data("key")
+      setLotteryList(key);
+    });
+
+
+    // 彩种点击
+    $(document).on("click", "#lotteryPop dl dd", function (e) {
+      e.preventDefault();
+      key = $(this).data("key");
+      setLotteryList(key);
+      $("#showLotteryPop").html(`${$(this).text()} <i class="iconfont icon-jiantou-xia"></i>`);
+      $("#lotteryPop").hide();
+      $("#payGamePop").show();
+    });
+
+    // 玩法点击
+    $(document).on("click", "#payGamePop dl dd", function (e) {
+      e.preventDefault();
+      key = $(this).data("key");
+      gmkey = $(this).data("gmkey");
+      GetNowOpenCode(key);
+      GetExpertPlanList(key,gmkey)
+      $("#showPayGamePop span").html($(this).text()).data("key",key).data("gmkey",gmkey);
+      $("#payGamePop").hide();
+    });
+
+    // 关闭弹窗
+    $(document).on("click", ".icon-guanbi", function () {
+      $("#lotteryPop").hide();
+      $("#payGamePop").hide();
+    });
+
+    // 当前开奖号码
+    function GetNowOpenCode(key) {
+      Api.getNowOpenCode(key).then(function (res) {
+        $("#nowOpenCode").html(res.oc_code);
+        $("#nowStage").html(res.oc_expect.toString().substr(0, 8) + "-<em>" + res.oc_expect.toString().substr(-3) + "期</em>");
+      })
+    }
+    GetNowOpenCode(1);
+
+    var nowOpenCodeInt = window.setInterval(function () {
+      GetNowOpenCode(key)
+      GetExpertPlanList(key, gmkey);
+    }, 20000);
+
+    // 查询计划
+    function GetExpertPlanList(key, gmkey) {
+      var planeList = [];
+      Api.getExpertPlanList(key, gmkey).then(function (res) {
+        var evalArr = [],
+          stepArr = [],
+          htmlStr = "";
+        stepArr = res.data[0].gr_money1.split("\n");
+        // 返回内容有问题，删除数组前三个
+        stepArr.splice(0, 3);
+
+        stepArr.forEach(function (items) {
+          evalArr = items.split(" ");
+          planeList.push(evalArr);
+        })
+        planeList.forEach(function (element, index) {
+          htmlStr += '<tr>';
+          if (res.state == 1) { // vip
+            if (index < 30) {
+              element.forEach(function (item, _index) {
+                if (item.indexOf("中") == 0) {
+                  htmlStr += '<td><div class="ui-table-cell cr-main">' + item + '</div></td>';
+                } else {
+                  htmlStr += '<td><div class="ui-table-cell">' + item + '</div></td>';
+                }
+              });
+            }
+          } else {
+            if (index < 15) {
+              element.forEach(function (item, _index) {
+                if (item.indexOf("中") == 0) {
+                  htmlStr += '<td><div class="ui-table-cell cr-main">' + item + '</div></td>';
+                } else if (_index == 2) {
+                  htmlStr += '<td><div class="ui-table-cell">VIP可查看</div></td>';
+                } else {
+                  htmlStr += '<td><div class="ui-table-cell">' + item + '</div></td>';
+                }
+              });
+            }
+
+          }
+          htmlStr += "</tr>";
+        })
+        $("#planeList").html(htmlStr);
+        if (res.state == 0) {
+          $("#planeList").addClass("no-vip");
+          CONFIG._showMsg("购买vip即可查看预测号码")
+          setTimeout(() => {
+            window.location.href = "./vip.html";
+          }, 1500);
+        }
+      })
+    }
+    
   })
 </script>
+
 </html>

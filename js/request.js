@@ -7,6 +7,7 @@ var Api = {
   basicinfo: baseUrl + '/basicinfo.ashx',
   recharge: baseUrl + '/recharge.ashx',
   gainsLosses: baseUrl + '/gainsLosses.ashx',
+  advice: baseUrl + '/advice.ashx',
 
   // 登录
   login: function (name,pwd) {
@@ -359,6 +360,39 @@ var Api = {
           bankName: name,
           bankType: type,
           bankCard: card
+        },
+        callBack:function (res) { 
+          if(res.state == 1){
+            resolve(res);
+          }
+        }
+      })
+    })
+  },
+  // 客服-添加留言
+  addAdvice: function (txt) {
+    return new Promise(function(resolve){
+      new ajaxRequest({
+        url: Api.advice,
+        param: {
+          action: 1,
+          txt: txt
+        },
+        callBack:function (res) { 
+          if(res.state == 1){
+            resolve(res);
+          }
+        }
+      })
+    })
+  },
+  // 客服-查询客服留言
+  listAdvice: function (txt) {
+    return new Promise(function(resolve){
+      new ajaxRequest({
+        url: Api.advice,
+        param: {
+          action: 2,
         },
         callBack:function (res) { 
           if(res.state == 1){
