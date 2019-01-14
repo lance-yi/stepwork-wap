@@ -37,6 +37,7 @@
     </div>
     <div class="main">
       <div class="title"><span id="nowStage">20180921-<em>024期</em></span><span>开奖结果-<em id="nowOpenCode">198723</em></span></div>
+      <!-- <textarea id="zhixuanBox" style="width: 100%; height: 100px; padding: 10px; box-sizing: border-box;"></textarea> -->
       <table width="100%">
         <thead>
           <tr>
@@ -124,25 +125,26 @@
       payGamePopList = [];
     // 彩种
     ;
-    (setLotteryList = function (key) {
+    (setLotteryList = function (_key) {
       let htmlStr = "";
       let itemHtmlStr = "";
       key = CONFIG._payGameList[0].key;
       gmkey = CONFIG._payGameList[0].list[0].key;
+      $("#showPayGamePop span").html(CONFIG._payGameList[0].list[0].name).data("key",key).data("gmkey",gmkey);
       CONFIG._payGameList.forEach(function (items) {
         htmlStr +=
           `<dd data-key="${items.key}"><a href="javascript:void(0);">${items.name}</a></dd>`;
-        if (items.key == key) {
+        if (items.key == _key) {
           itemHtmlStr = "";
           key = items.key;
           gmkey = items.list[0].key;
+          $("#showPayGamePop span").html(items.list[0].name).data("key",key).data("gmkey",gmkey);
           items.list.forEach(function (item) {
             itemHtmlStr +=
               `<dd data-key="${items.key}" data-gmkey="${item.key}"><a href="javascript:void(0);">${item.name}</a></dd>`;
           })
         }
       });
-      $("#showPayGamePop span").html(CONFIG._payGameList[0].list[0].name).data("key",key).data("gmkey",gmkey);
       $("#lotteryPop dl").html(htmlStr);
       $("#payGamePop dl").html(itemHtmlStr);
       GetExpertPlanList(key, gmkey);
@@ -219,6 +221,14 @@
           evalArr = items.split(" ");
           planeList.push(evalArr);
         })
+        // 处理直选问题(暂时取消了)
+        // console.log(stepArr)
+        // if(gmkey == 2 || gmkey == 46 || gmkey == 47 || gmkey == 48 || gmkey == 49){
+        //   $("#zhixuanBox").show().text(stepArr[stepArr.length-1]);
+        //   stepArr.splice(stepArr.length-1,1);
+        // }else{
+        //   $("#zhixuanBox").hide();
+        // }
         planeList.forEach(function (element, index) {
           if (res.state == 1) { // vip
             if (index < 30) {

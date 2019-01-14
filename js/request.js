@@ -26,7 +26,7 @@ var Api = {
           Api.getUserInfo();
           CONFIG._showMsg(res.message);
           setTimeout(() => {
-            window.location.href = './wode.html'
+            window.location.href = './index.html'
           }, 1000);
         }else{
           CONFIG._showMsg(res.message);
