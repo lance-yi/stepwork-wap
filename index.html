@@ -218,7 +218,14 @@
         stepArr.splice(0, 3);
 
         stepArr.forEach(function (items) {
-          evalArr = items.split(" ");
+          // 处理pk10问题
+          if(gmKey == 16 || gmKey == 17 || gmKey == 18){
+            var evalArr0 = items.split(" 【")[0].split(" ");
+            var evalArr1 = items.split(" 【")[1].split("】 ")
+            evalArr = evalArr0.concat(evalArr1);
+          }else{
+            evalArr = items.split(" ");
+          }
           planeList.push(evalArr);
         })
         // 处理直选问题(暂时取消了)
