@@ -220,9 +220,9 @@
           planeList.push(evalArr);
         })
         planeList.forEach(function (element, index) {
-          htmlStr += '<tr>';
           if (res.state == 1) { // vip
             if (index < 30) {
+              htmlStr += '<tr class="td">';
               element.forEach(function (item, _index) {
                 if (item.indexOf("中") == 0) {
                   htmlStr += '<td><div class="ui-table-cell cr-main">' + item + '</div></td>';
@@ -230,9 +230,11 @@
                   htmlStr += '<td><div class="ui-table-cell">' + item + '</div></td>';
                 }
               });
+              htmlStr += "</tr>";
             }
           } else {
             if (index < 15) {
+              htmlStr += '<tr class="td">';
               element.forEach(function (item, _index) {
                 if (item.indexOf("中") == 0) {
                   htmlStr += '<td><div class="ui-table-cell cr-main">' + item + '</div></td>';
@@ -242,10 +244,9 @@
                   htmlStr += '<td><div class="ui-table-cell">' + item + '</div></td>';
                 }
               });
+              htmlStr += "</tr>";
             }
-
           }
-          htmlStr += "</tr>";
         })
         $("#planeList").html(htmlStr);
         if (res.state == 0) {

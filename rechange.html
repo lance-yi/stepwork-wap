@@ -24,15 +24,29 @@
     <div class="main">
         <div class="toppri">
         	<em>交易金额</em>
-        	<span>5.00</span>
+        	<span id="price">5.00</span>
         </div>
         <div class="cold">
         	<em>支付宝或者微信扫描二维码支付</em>
         	<span><img src="./images/common/cold.jpg" alt=""/></span>
-        	<a href="javascript:void(0);">保存到相册</a>
+        	<a href="javascript:void(0);" id="save">保存到相册</a>
         </div>
     </div>
-
 </div>
+<script src="./js/cookie.js"></script>
+<script src="./js/config.js"></script>
+<script src="./js/base.js"></script>
+<script src="./js/request.js"></script>
+<script>
+    $(document).ready(function () {
+        var price = _Base.getQueryString("price");
+        $("#price").html(_Base.formatCurrency(price));
+
+        
+        $("#save").click(function () {
+            CONFIG._showMsg("您的手机不支持，请使用截图保存。");
+        })
+    });
+</script>
 </body>
 </html>
