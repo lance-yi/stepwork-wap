@@ -1,62 +1,69 @@
 <!doctype html>
 <html lang="zh">
+
 <head>
-<meta charset="UTF-8">
-<title>登录</title>
-<meta name="revisit-after"  content="1 days" />
-<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-<link rel="stylesheet" type="text/css" href="./css/base.css" />
-<link rel="stylesheet" type="text/css" href="./css/common.css" />
-<link rel="stylesheet" type="text/css" href="./css/style.css" />
-<script type="text/javascript" language="javascript" src="./js/zepto.min.js"></script>
-<script type="text/javascript" language="javascript" src="./layer_mobile/layer.js"></script>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <meta name="revisit-after" content="1 days" />
+    <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="./css/base.css" />
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <script type="text/javascript" language="javascript" src="./js/zepto.min.js"></script>
+    <script type="text/javascript" language="javascript" src="./layer_mobile/layer.js"></script>
 
 </head>
 <style>
-	body{ background:#fff;}
+    body{ background:#fff;}
 	.icon-form .tip{text-align:center;}
 </style>
-<body>
-<div class="container">
-    <div class="main">
-        <div class="login">
-            <div class="login-logo">
-                <img src="./images/common/logo.png" alt=""/>
-            </div>
-        </div>
-        <div class="form-wrap mt10">
-            <div class="icon-form" id="form-input">
-                <ul>
-                    <li class="clearfix">
-                       
-                        <div class="input">
-                            <input type="text" id="username" placeholder="请输入用户名">
-                        </div>
-                    </li>
-                    <li class="clearfix">
-                        
-                        <div class="input">
-                            <input type="password" id="password" onkeydown="_Base.enterPress(event)" placeholder="请输入密码" style="width:40%">
-                        </div>
-                    </li>
-                </ul>
-               
-                <div class="mt20">
-                    <a href="javascript:void(0);" onclick="_Base.submitLogin()" class="btnOrg btnsF16 btn-login">登录</a>
-                </div>
-                <div class="mt20 tip textCent"><a href="register.html">新用户注册</a> </div>
-                
-               
-            </div>
-        </div>
-    </div>
 
-</div>
-<script src="./js/jquery-1.11.3.min.js"></script>
-<script src="./js/jqMD.js"></script>
-<script src="./js/cookie.js"></script>
-<script src="./js/config.js"></script>
-<script src="./js/base.js"></script>
-<script src="./js/request.js"></script>
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="login">
+                <div class="login-logo">
+                    <img src="./images/common/logo.png" alt="" />
+                </div>
+            </div>
+            <div class="form-wrap mt10">
+                <div class="icon-form" id="form-input">
+                    <ul>
+                        <li class="clearfix">
+
+                            <div class="input">
+                                <input type="text" id="username" placeholder="请输入用户名">
+                            </div>
+                        </li>
+                        <li class="clearfix">
+
+                            <div class="input">
+                                <input type="password" id="password" onkeydown="_Base.enterPress(event)" placeholder="请输入密码"
+                                    style="width:40%">
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="mt20">
+                        <a href="javascript:void(0);" onclick="_Base.submitLogin()" class="btnOrg btnsF16 btn-login">登录</a>
+                    </div>
+                    <div class="mt20 tip textCent"><a href="register.html">新用户注册</a> </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jqMD.js"></script>
+    <script src="./js/cookie.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/base.js"></script>
+    <script src="./js/request.js"></script>
 </body>
+
 </html>

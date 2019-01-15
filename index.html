@@ -5,7 +5,10 @@
   <meta charset="UTF-8">
   <title>计划大师</title>
   <meta name="revisit-after" content="1 days" />
-  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" name="viewport" />
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" />
   <link rel="stylesheet" type="text/css" href="./css/base.css" />
   <link rel="stylesheet" type="text/css" href="./css/common.css" />
   <link rel="stylesheet" type="text/css" href="./css/style.css" />
@@ -20,7 +23,8 @@
   .container {
     margin: 65px auto 70px;
   }
-  .cr-main{
+
+  .cr-main {
     color: red;
   }
 </style>
@@ -117,7 +121,8 @@
 <script src="./js/request.js"></script>
 <script>
   $(function () {
-    let key = '',gmkey = '';
+    let key = '',
+      gmkey = '';
     CONFIG._isLoginSuccess();
 
     Api.getUserInfo();
@@ -130,7 +135,7 @@
       let itemHtmlStr = "";
       key = CONFIG._payGameList[0].key;
       gmkey = CONFIG._payGameList[0].list[0].key;
-      $("#showPayGamePop span").html(CONFIG._payGameList[0].list[0].name).data("key",key).data("gmkey",gmkey);
+      $("#showPayGamePop span").html(CONFIG._payGameList[0].list[0].name).data("key", key).data("gmkey", gmkey);
       CONFIG._payGameList.forEach(function (items) {
         htmlStr +=
           `<dd data-key="${items.key}"><a href="javascript:void(0);">${items.name}</a></dd>`;
@@ -138,7 +143,7 @@
           itemHtmlStr = "";
           key = items.key;
           gmkey = items.list[0].key;
-          $("#showPayGamePop span").html(items.list[0].name).data("key",key).data("gmkey",gmkey);
+          $("#showPayGamePop span").html(items.list[0].name).data("key", key).data("gmkey", gmkey);
           items.list.forEach(function (item) {
             itemHtmlStr +=
               `<dd data-key="${items.key}" data-gmkey="${item.key}"><a href="javascript:void(0);">${item.name}</a></dd>`;
@@ -155,7 +160,7 @@
       e.preventDefault();
       $("#lotteryPop").show();
     });
-    
+
     // 玩法显示
     $("#showPayGamePop").click(function (e) {
       e.preventDefault();
@@ -181,8 +186,8 @@
       key = $(this).data("key");
       gmkey = $(this).data("gmkey");
       GetNowOpenCode(key);
-      GetExpertPlanList(key,gmkey)
-      $("#showPayGamePop span").html($(this).text()).data("key",key).data("gmkey",gmkey);
+      GetExpertPlanList(key, gmkey)
+      $("#showPayGamePop span").html($(this).text()).data("key", key).data("gmkey", gmkey);
       $("#payGamePop").hide();
     });
 
@@ -196,7 +201,8 @@
     function GetNowOpenCode(key) {
       Api.getNowOpenCode(key).then(function (res) {
         $("#nowOpenCode").html(res.oc_code);
-        $("#nowStage").html(res.oc_expect.toString().substr(0, 8) + "-<em>" + res.oc_expect.toString().substr(-3) + "期</em>");
+        $("#nowStage").html(res.oc_expect.toString().substr(0, 8) + "-<em>" + res.oc_expect.toString().substr(-
+          3) + "期</em>");
       })
     }
     GetNowOpenCode(1);
@@ -219,11 +225,11 @@
 
         stepArr.forEach(function (items) {
           // 处理pk10问题
-          if(gmkey == 16 || gmkey == 17 || gmkey == 18){
+          if (gmkey == 16 || gmkey == 17 || gmkey == 18) {
             var evalArr0 = items.split(" 【")[0].split(" ");
             var evalArr1 = items.split(" 【")[1].split("】 ")
             evalArr = evalArr0.concat(evalArr1);
-          }else{
+          } else {
             evalArr = items.split(" ");
           }
           planeList.push(evalArr);
@@ -275,7 +281,7 @@
         }
       })
     }
-    
+
   })
 </script>
 

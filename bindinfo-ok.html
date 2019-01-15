@@ -5,7 +5,10 @@
   <meta charset="UTF-8">
   <title>绑定信息</title>
   <meta name="revisit-after" content="1 days" />
-  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" name="viewport" />
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" />
   <link rel="stylesheet" type="text/css" href="./css/base.css" />
   <link rel="stylesheet" type="text/css" href="./css/common.css" />
   <link rel="stylesheet" type="text/css" href="./css/style.css" />
@@ -59,26 +62,26 @@
 
   </div>
 
-<script src="./js/cookie.js"></script>
-<script src="./js/config.js"></script>
-<script src="./js/base.js"></script>
-<script src="./js/request.js"></script>
-<script>
-  $(document).ready(function () {
-    var cardType = $("#selectType"),
-      cardNumber = $("#cardNumber"),
-      realName = $("#realName");
-    // 重新获取一下用户信息
-    Api.getUserInfo();
-    // 绑定页面数据
-		var userInfo = Cookies.getJSON("userInfo");
-		if(userInfo.u_bankType > 0){ // 判断是否绑定
-			cardNumber.val(userInfo.u_bankCard).attr("disabled",true)
-			realName.val(userInfo.u_bankName).attr("disabled",true)
-			cardType.text(userInfo.u_bankType == 1 ? "支付宝" : "微信")
-		}      
-  });
-</script>
+  <script src="./js/cookie.js"></script>
+  <script src="./js/config.js"></script>
+  <script src="./js/base.js"></script>
+  <script src="./js/request.js"></script>
+  <script>
+    $(document).ready(function () {
+      var cardType = $("#selectType"),
+        cardNumber = $("#cardNumber"),
+        realName = $("#realName");
+      // 重新获取一下用户信息
+      Api.getUserInfo();
+      // 绑定页面数据
+      var userInfo = Cookies.getJSON("userInfo");
+      if (userInfo.u_bankType > 0) { // 判断是否绑定
+        cardNumber.val(userInfo.u_bankCard).attr("disabled", true)
+        realName.val(userInfo.u_bankName).attr("disabled", true)
+        cardType.text(userInfo.u_bankType == 1 ? "支付宝" : "微信")
+      }
+    });
+  </script>
 </body>
 
 </html>

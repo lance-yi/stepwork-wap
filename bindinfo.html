@@ -5,7 +5,10 @@
   <meta charset="UTF-8">
   <title>绑定信息</title>
   <meta name="revisit-after" content="1 days" />
-  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" name="viewport" />
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" />
   <link rel="stylesheet" type="text/css" href="./css/base.css" />
   <link rel="stylesheet" type="text/css" href="./css/common.css" />
   <link rel="stylesheet" type="text/css" href="./css/style.css" />
@@ -64,91 +67,91 @@
 
   <!--弹出层 start-->
   <div style="display: none" id="payTypePop">
-      <div class="detail-pop">
-        <div class="title"><span class="tit">选择玩法</span><span class="close"><i class="iconfont icon-guanbi"></i></span></div>
-        <dl>
-          <dd onclick="_selectType(1)"><a href="javascript:void(0);">支付宝</a></dd>
-          <dd onclick="_selectType(2)"><a href="javascript:void(0);">微信</a></dd>
-        </dl>
-      </div>
-      <div class="back"></div>
+    <div class="detail-pop">
+      <div class="title"><span class="tit">选择玩法</span><span class="close"><i class="iconfont icon-guanbi"></i></span></div>
+      <dl>
+        <dd onclick="_selectType(1)"><a href="javascript:void(0);">支付宝</a></dd>
+        <dd onclick="_selectType(2)"><a href="javascript:void(0);">微信</a></dd>
+      </dl>
+    </div>
+    <div class="back"></div>
   </div>
   <!--弹出层 end-->
-<script src="./js/cookie.js"></script>
-<script src="./js/config.js"></script>
-<script src="./js/base.js"></script>
-<script src="./js/request.js"></script>
-<script>
-  // 选择类型
-  function _selectType(type){
-    $("#selectType .text").data("type",type).text(type == 1 ? "支付宝" : "微信");
-    $("#payTypePop").hide();
-    
-  }
-  $(document).ready(function () {
-    // 弹出框
-    $("#selectType").click(function () {
-      $("#payTypePop").show();
-    })
-    // 关闭弹窗
-    $(".title i").click(function (e) { 
-      e.preventDefault();
+  <script src="./js/cookie.js"></script>
+  <script src="./js/config.js"></script>
+  <script src="./js/base.js"></script>
+  <script src="./js/request.js"></script>
+  <script>
+    // 选择类型
+    function _selectType(type) {
+      $("#selectType .text").data("type", type).text(type == 1 ? "支付宝" : "微信");
       $("#payTypePop").hide();
-    });
+
+    }
+    $(document).ready(function () {
+      // 弹出框
+      $("#selectType").click(function () {
+        $("#payTypePop").show();
+      })
+      // 关闭弹窗
+      $(".title i").click(function (e) {
+        e.preventDefault();
+        $("#payTypePop").hide();
+      });
 
 
-    var cardType = $("#selectType .text"),
-      cardNumber = $("#cardNumber"),
-      realName = $("#realName");
+      var cardType = $("#selectType .text"),
+        cardNumber = $("#cardNumber"),
+        realName = $("#realName");
 
-    // 重新获取一下用户信息
-    Api.getUserInfo();
-        
-    // 绑定页面数据
-		var userInfo = Cookies.getJSON("userInfo");
-    console.log(userInfo);
-		if(userInfo.u_bankType > 0){ // 判断是否绑定
-			cardNumber.val(userInfo.u_bankCard).attr("disabled",true)
-			realName.val(userInfo.u_bankName).attr("disabled",true)
-      $("#submitBindInfo").text("已绑定")
-		}else{
-			$("#bangding").show();
-			$("#isBind").hide();
-		}
+      // 重新获取一下用户信息
+      Api.getUserInfo();
 
-
-    $("#submitBindInfo").on("click",function () {
-      console.log(cardType.data("type"))
-      if(cardType.data("type") == undefined){
-        CONFIG._showMsg("请选择绑定的支付类型");
-        return;
-      }
-      if(cardNumber.val() == ''){
-        CONFIG._showMsg("账号不能为空!");
-        return;
-      }
-
-      if(!/^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/.test(realName.val())){
-        CONFIG._showMsg("请输入正确的真实姓名");
-        return;
+      // 绑定页面数据
+      var userInfo = Cookies.getJSON("userInfo");
+      console.log(userInfo);
+      if (userInfo.u_bankType > 0) { // 判断是否绑定
+        cardNumber.val(userInfo.u_bankCard).attr("disabled", true)
+        realName.val(userInfo.u_bankName).attr("disabled", true)
+        $("#submitBindInfo").text("已绑定")
+      } else {
+        $("#bangding").show();
+        $("#isBind").hide();
       }
 
-      Api.bindUserBank(
-        cardNumber.val(),
-        cardType.data("type"),
-        realName.val()
-      ).then(function (res) {
-        CONFIG._showMsg(res.message);
-        Cookies.remove("userInfo");
-        setTimeout(function () {
-          window.location.reload();
-        },1000)
+
+      $("#submitBindInfo").on("click", function () {
+        console.log(cardType.data("type"))
+        if (cardType.data("type") == undefined) {
+          CONFIG._showMsg("请选择绑定的支付类型");
+          return;
+        }
+        if (cardNumber.val() == '') {
+          CONFIG._showMsg("账号不能为空!");
+          return;
+        }
+
+        if (!/^[\u4E00-\u9FA5\uf900-\ufa2d·s]{2,20}$/.test(realName.val())) {
+          CONFIG._showMsg("请输入正确的真实姓名");
+          return;
+        }
+
+        Api.bindUserBank(
+          cardNumber.val(),
+          cardType.data("type"),
+          realName.val()
+        ).then(function (res) {
+          CONFIG._showMsg(res.message);
+          Cookies.remove("userInfo");
+          setTimeout(function () {
+            window.location.reload();
+          }, 1000)
+        })
+
       })
 
-    })
-      
-  });
-</script>
+    });
+  </script>
 </body>
 
 </html>

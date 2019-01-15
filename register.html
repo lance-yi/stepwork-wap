@@ -1,38 +1,43 @@
 <!doctype html>
 <html lang="zh">
+
 <head>
-<meta charset="UTF-8">
-<title>注册</title>
-<meta name="revisit-after"  content="1 days" />
-<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-<link rel="stylesheet" type="text/css" href="./css/base.css" />
-<link rel="stylesheet" type="text/css" href="./css/common.css" />
-<link rel="stylesheet" type="text/css" href="./css/style.css" />
-<script type="text/javascript" language="javascript" src="./js/zepto.min.js"></script>
-<script type="text/javascript" language="javascript" src="./layer_mobile/layer.js"></script>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <meta name="revisit-after" content="1 days" />
+    <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="./css/base.css" />
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <script type="text/javascript" language="javascript" src="./js/zepto.min.js"></script>
+    <script type="text/javascript" language="javascript" src="./layer_mobile/layer.js"></script>
 </head>
 <style>
-	body{ background:#fff;}
+    body{ background:#fff;}
 	.get-code img{ width:100px; }
 </style>
+
 <body>
-<div class="header clearfix">
-       <a class="left" href="javascript:history.go(-1);"><b class="iconfont icon-chevron-copy"></b></a>
-       <span class="center">注册</span>
-</div>
-<div class="container">
-    <div class="main">
-        <div class="form-wrap mt10">
-            <div class="icon-form" id="form-input">
-                <ul>
-                    <li class="clearfix">
-                        <div class="icon">用户名
-                        </div>
-                        <div class="input">
-                            <input type="text" id="username" placeholder="请输入用户名">
-                        </div>
-                    </li>
-                    <!-- <li class="clearfix">
+    <div class="header clearfix">
+        <a class="left" href="javascript:history.go(-1);"><b class="iconfont icon-chevron-copy"></b></a>
+        <span class="center">注册</span>
+    </div>
+    <div class="container">
+        <div class="main">
+            <div class="form-wrap mt10">
+                <div class="icon-form" id="form-input">
+                    <ul>
+                        <li class="clearfix">
+                            <div class="icon">用户名
+                            </div>
+                            <div class="input">
+                                <input type="text" id="username" placeholder="请输入用户名">
+                            </div>
+                        </li>
+                        <!-- <li class="clearfix">
                         <div class="icon">图片验证码
                         </div>
                         <div class="input">
@@ -40,68 +45,70 @@
                             <span class="get-code"><img src="./images/common/picCode.jpg" alt=""/></span>
                         </div>
                     </li> -->
-                    <li class="clearfix">
-                        <div class="icon">密码
-                        </div>
-                        <div class="input">
-                            <input type="password" id="password" placeholder="请设置密码">
-                        </div>
-                    </li>
-                    <li class="clearfix">
-                        <div class="icon">确认密码
-                        </div>
-                        <div class="input">
-                            <input type="password" id="password2" placeholder="请确认密码">
-                        </div>
-                    </li>
-                    <li class="clearfix">
-                        <div class="icon">推荐码
-                        </div>
-                        <div class="input">
-                            <input type="password" id="codePid" placeholder="请输入推荐码(选填)">
-                        </div>
-                    </li>
-                </ul>
-                <div class="mt20">
-                    <a href="javascript:void(0);" id="submitRegisterFrom" class="btnOrg btnsF16 btn-login">立即注册</a>
+                        <li class="clearfix">
+                            <div class="icon">密码
+                            </div>
+                            <div class="input">
+                                <input type="password" id="password" placeholder="请设置密码">
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="icon">确认密码
+                            </div>
+                            <div class="input">
+                                <input type="password" id="password2" placeholder="请确认密码">
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="icon">推荐码
+                            </div>
+                            <div class="input">
+                                <input type="password" id="codePid" placeholder="请输入推荐码(选填)">
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt20">
+                        <a href="javascript:void(0);" id="submitRegisterFrom" class="btnOrg btnsF16 btn-login">立即注册</a>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
+    <script src="./js/jquery-1.11.3.min.js"></script>
+    <script src="./js/jqMD.js"></script>
+    <script src="./js/cookie.js"></script>
+    <script src="./js/config.js"></script>
+    <script src="./js/base.js"></script>
+    <script src="./js/request.js"></script>
+    <script>
+        $(document).ready(function () {
+            var username = $("#username");
+            var password = $("#password");
+            var password2 = $("#password2");
+            var codePid = $("#codePid");
 
-</div>
-<script src="./js/jquery-1.11.3.min.js"></script>
-<script src="./js/jqMD.js"></script>
-<script src="./js/cookie.js"></script>
-<script src="./js/config.js"></script>
-<script src="./js/base.js"></script>
-<script src="./js/request.js"></script>
-<script>
-    $(document).ready(function () {
-        var username = $("#username"); 
-		var password = $("#password"); 
-		var password2 = $("#password2");
-		var codePid = $("#codePid");
-		
-		// 判断是否是推测地址打开
-		var extendId = window.location.href.split("?")[1];
-		if(extendId){
-			codePid.val(extendId).css("disable",true)
-		}
-
-
-		$("#submitRegisterFrom").on("click", function () {
-            if(password.val() != password2.val()){
-                CONFIG._showMsg("两次密码补不一致");
-                password.val("");
-                password2.val("");
-                return;
+            // 判断是否是推测地址打开
+            var extendId = window.location.href.split("?")[1];
+            if (extendId) {
+                codePid.val(extendId).css("disable", true)
             }
-			if(CONFIG._checkUserName(username) && CONFIG._checkRegisterWord(password) && password.val() == password2.val()){
-				Api.register(username.val(),password.val(),codePid.val());
-			}
-		});
-    });
-</script>
+
+
+            $("#submitRegisterFrom").on("click", function () {
+                if (password.val() != password2.val()) {
+                    CONFIG._showMsg("两次密码补不一致");
+                    password.val("");
+                    password2.val("");
+                    return;
+                }
+                if (CONFIG._checkUserName(username) && CONFIG._checkRegisterWord(password) && password.val() ==
+                    password2.val()) {
+                    Api.register(username.val(), password.val(), codePid.val());
+                }
+            });
+        });
+    </script>
 </body>
+
 </html>

@@ -5,7 +5,10 @@
   <meta charset="UTF-8">
   <title>佣金提现</title>
   <meta name="revisit-after" content="1 days" />
-  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+  <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" name="viewport" />
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+  <meta content="telephone=no" name="format-detection" />
   <link rel="stylesheet" type="text/css" href="./css/base.css" />
   <link rel="stylesheet" type="text/css" href="./css/common.css" />
   <link rel="stylesheet" type="text/css" href="./css/style.css" />
@@ -80,7 +83,7 @@
 
       var drawMoney = $("#drawMoney");
       var passWord = $("#passWord");
-      $("#submitDrawingFrom").click(function (e) { 
+      $("#submitDrawingFrom").click(function (e) {
         if (CONFIG._checkDrawMoney(drawMoney) && CONFIG._checkPayWord(passWord)) {
           Api.submitDrawing(drawMoney.val(), passWord.val()).then(function (res) {
             CONFIG._showMsg("提现成功!")

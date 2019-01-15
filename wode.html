@@ -1,30 +1,39 @@
 <!doctype html>
 <html lang="zh">
+
 <head>
-<meta charset="UTF-8">
-<title>个人中心</title>
-<meta name="revisit-after"  content="1 days" />
-<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-<link rel="stylesheet" type="text/css" href="./css/base.css" />
-<link rel="stylesheet" type="text/css" href="./css/common.css" />
-<link rel="stylesheet" type="text/css" href="./css/style.css" />
-<script type="text/javascript" language="javascript" src="./js/zepto.min.js"></script>
-<script type="text/javascript" language="javascript" src="./layer_mobile/layer.js"></script>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <meta name="revisit-after" content="1 days" />
+    <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="./css/base.css" />
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <script type="text/javascript" language="javascript" src="./js/zepto.min.js"></script>
+    <script type="text/javascript" language="javascript" src="./layer_mobile/layer.js"></script>
 </head>
 <style>
-	body{ background:#F5F5F9;}
-	.container {margin: 0px auto 80px;}
+    body {
+        background: #F5F5F9;
+    }
 
+    .container {
+        margin: 0px auto 80px;
+    }
 </style>
+
 <body>
-<div class="container block-member">
-   <div class="member-head">
-   		<span class="headimg"><img src="./images/common/head.png" alt=""/></span>  
-   		<span class="name" id="u_name">wejofjwe</span>
-   		<span class="oper"><a href="./vip.html" class="btnsF16">购买VIP</a></span>
-   </div>
-   <div class="pricetot">
-  		<!-- <div class="clearfix">
+    <div class="container block-member">
+        <div class="member-head">
+            <span class="headimg"><img src="./images/common/head.png" alt="" /></span>
+            <span class="name" id="u_name">wejofjwe</span>
+            <span class="oper"><a href="./vip.html" class="btnsF16">购买VIP</a></span>
+        </div>
+        <div class="pricetot">
+            <!-- <div class="clearfix">
 			<span class="left">
 				<em>账户金额(元)</em>
 				<b class="u_money"></b>
@@ -34,36 +43,37 @@
 				<b>0.00</b>
 			</span>
    		</div> -->
-   		<div class="tixian"><span><em>可提现金额(元)：</em><b class="u_money">899.00</b></span> <a href="drawing.html" id="drawing" class="btnsF16">提款</a></div>
-   </div>
-   <div class="listimg">
-   	 <ul class="clearfix">
-	<li><a href="teamList.html"><i class="iconfont icon-tuandui"></i>团队管理</a></li>
-   	<li><a href="teamMoney.html"><i class="iconfont icon-qiandai"></i>团队佣金</a></li>
-   	 <li><a href="moneyDetail.html"><i class="iconfont icon-zijinjilu1"></i>资金明细</a></li>
-   	 <li><a href="extend.html"><i class="iconfont icon-icon2"></i>分享好友</a></li>
-   	 </ul>	
-   </div>
-   
-   <div class="list default-list">
-   	<ul>
-   		<li id="bangding"><a href="bindinfo.html"><span class="text">绑定提现信息</span></a></li>
-   		<li id="isBind"><a href="bindinfo-ok.html"><span class="text">查看提现信息</span></a></li>
-   		<li><a href="edit-pwd.html"><span class="text">修改登录密码</span></a></li>
-   		<li><a href="edit-paypwd.html"><span class="text">修改交易密码</span></a></li>
-   	</ul>
-   </div>
-   <div class="mt20">
-        <a href="javascript:void(0);" onclick="CONFIG._logout()" class="btnWiht btnsF18">退出</a>
-   </div>
+            <div class="tixian"><span><em>可提现金额(元)：</em><b class="u_money">899.00</b></span> <a href="drawing.html" id="drawing"
+                    class="btnsF16">提款</a></div>
+        </div>
+        <div class="listimg">
+            <ul class="clearfix">
+                <li><a href="teamList.html"><i class="iconfont icon-tuandui"></i>团队管理</a></li>
+                <li><a href="teamMoney.html"><i class="iconfont icon-qiandai"></i>团队佣金</a></li>
+                <li><a href="moneyDetail.html"><i class="iconfont icon-zijinjilu1"></i>资金明细</a></li>
+                <li><a href="extend.html"><i class="iconfont icon-icon2"></i>分享好友</a></li>
+            </ul>
+        </div>
 
-</div>
+        <div class="list default-list">
+            <ul>
+                <li id="bangding"><a href="bindinfo.html"><span class="text">绑定提现信息</span></a></li>
+                <li id="isBind"><a href="bindinfo-ok.html"><span class="text">查看提现信息</span></a></li>
+                <li><a href="edit-pwd.html"><span class="text">修改登录密码</span></a></li>
+                <li><a href="edit-paypwd.html"><span class="text">修改交易密码</span></a></li>
+            </ul>
+        </div>
+        <div class="mt20">
+            <a href="javascript:void(0);" onclick="CONFIG._logout()" class="btnWiht btnsF18">退出</a>
+        </div>
 
-<div class="footer">
+    </div>
+
+    <div class="footer">
         <div class="footNav">
             <ul class="clearfix">
                 <li class="nav_01">
-                    <a href="index.html" >
+                    <a href="index.html">
                         <p class="icon"></p>
                         <p>首页</p>
                     </a>
@@ -89,7 +99,7 @@
             </ul>
         </div>
     </div>
-    
+
 </body>
 <script src="./js/cookie.js"></script>
 <script src="./js/config.js"></script>
@@ -99,30 +109,31 @@
     $(function () {
         // CONFIG._isLoginSuccess();
 
-		if(!Cookies.get("isLogin")){
+        if (!Cookies.get("isLogin")) {
             window.location.href = "./login.html";
         }
 
         // 重新获取一下用户信息
         Api.getUserInfo();
-        
+
         // 绑定页面数据
-		var userInfo = Cookies.getJSON("userInfo");
-		if(userInfo.u_bankType > 0){ // 判断是否绑定
-			$("#bangding").hide();
+        var userInfo = Cookies.getJSON("userInfo");
+        if (userInfo.u_bankType > 0) { // 判断是否绑定
+            $("#bangding").hide();
             $("#isBind").show();
             $("#drawing").show();
-		}else{
+        } else {
             $("#bangding").show();
-			$("#isBind").hide();
+            $("#isBind").hide();
             // $("#drawing").hide();
-		}
-		$(".u_money").html(_Base.formatCurrency(userInfo.u_money));
-		$("#u_name").html(userInfo.u_name);
-		$("#u_jibie").html("级别: " + _Base.filterRank(userInfo.u_id));
-		$("#u_bankType").html("收款类型: " + _Base.filterBankType(userInfo.u_bankType));
+        }
+        $(".u_money").html(_Base.formatCurrency(userInfo.u_money));
+        $("#u_name").html(userInfo.u_name);
+        $("#u_jibie").html("级别: " + _Base.filterRank(userInfo.u_id));
+        $("#u_bankType").html("收款类型: " + _Base.filterBankType(userInfo.u_bankType));
         $("#u_bankCard").html("银行卡号: " + userInfo.u_bankCard);
-        
+
     })
 </script>
+
 </html>

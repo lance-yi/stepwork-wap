@@ -1,41 +1,52 @@
 <!doctype html>
 <html lang="zh">
+
 <head>
-<meta charset="UTF-8">
-<title>团队佣金</title>
-<meta name="revisit-after"  content="1 days" />
-<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-<link rel="stylesheet" type="text/css" href="./css/base.css" />
-<link rel="stylesheet" type="text/css" href="./css/common.css" />
-<link rel="stylesheet" type="text/css" href="./css/style.css" />
-<script type="text/javascript" language="javascript" src="./js/zepto.min.js"></script>
-<script type="text/javascript" language="javascript" src="./js/dropload.min.js"></script>
-<script type="text/javascript" language="javascript" src="./layer_mobile/layer.js"></script>
+	<meta charset="UTF-8">
+	<title>团队佣金</title>
+	<meta name="revisit-after" content="1 days" />
+	<meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" name="viewport" />
+	<meta content="yes" name="apple-mobile-web-app-capable" />
+	<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+	<meta content="telephone=no" name="format-detection" />
+	<link rel="stylesheet" type="text/css" href="./css/base.css" />
+	<link rel="stylesheet" type="text/css" href="./css/common.css" />
+	<link rel="stylesheet" type="text/css" href="./css/style.css" />
+	<script type="text/javascript" language="javascript" src="./js/zepto.min.js"></script>
+	<script type="text/javascript" language="javascript" src="./js/dropload.min.js"></script>
+	<script type="text/javascript" language="javascript" src="./layer_mobile/layer.js"></script>
 </head>
 <style>
 	body{ background:#fff;}
 	.container { margin: 55px auto 0;}
 </style>
-<body>
-<div class="header clearfix">
-       <a class="left" href="javascript:history.go(-1);"><b class="iconfont icon-chevron-copy"></b></a>
-       <span class="center">团队佣金</span>
-</div>
-<div class="container">
-    <div class="main">
-        <div class="form-wrap block-tdmange mt10">
-           <table width="100%" id="teamMoney">
-							<tr><th>账号</th><th>充值</th><th>取现</th><th>活动</th><th>实际盈利(元)</th></tr>
-           </table>
-        </div>
-    </div>
 
-</div>
-<script type="text/javascript" language="javascript" src="./js/cookie.js"></script>
-<script type="text/javascript" language="javascript" src="./js/config.js"></script>
-<script type="text/javascript" language="javascript" src="./js/base.js"></script>
-<script type="text/javascript" language="javascript" src="./js/request.js"></script>
-<script>
+<body>
+	<div class="header clearfix">
+		<a class="left" href="javascript:history.go(-1);"><b class="iconfont icon-chevron-copy"></b></a>
+		<span class="center">团队佣金</span>
+	</div>
+	<div class="container">
+		<div class="main">
+			<div class="form-wrap block-tdmange mt10">
+				<table width="100%" id="teamMoney">
+					<tr>
+						<th>账号</th>
+						<th>充值</th>
+						<th>取现</th>
+						<th>活动</th>
+						<th>实际盈利(元)</th>
+					</tr>
+				</table>
+			</div>
+		</div>
+
+	</div>
+	<script type="text/javascript" language="javascript" src="./js/cookie.js"></script>
+	<script type="text/javascript" language="javascript" src="./js/config.js"></script>
+	<script type="text/javascript" language="javascript" src="./js/base.js"></script>
+	<script type="text/javascript" language="javascript" src="./js/request.js"></script>
+	<script>
 		$(document).ready(function () {
 			var page = 0;
 			$('.element').dropload({
@@ -70,4 +81,5 @@
 		});
 	</script>
 </body>
+
 </html>

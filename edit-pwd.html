@@ -1,59 +1,64 @@
 <!doctype html>
 <html lang="zh">
+
 <head>
-<meta charset="UTF-8">
-<title>修改登录密码</title>
-<meta name="revisit-after"  content="1 days" />
-<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-<link rel="stylesheet" type="text/css" href="./css/base.css" />
-<link rel="stylesheet" type="text/css" href="./css/common.css" />
-<link rel="stylesheet" type="text/css" href="./css/style.css" />
-<script type="text/javascript" language="javascript" src="./js/zepto.min.js"></script>
-<script type="text/javascript" language="javascript" src="./layer_mobile/layer.js"></script>
+    <meta charset="UTF-8">
+    <title>修改登录密码</title>
+    <meta name="revisit-after" content="1 days" />
+    <meta content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" type="text/css" href="./css/base.css" />
+    <link rel="stylesheet" type="text/css" href="./css/common.css" />
+    <link rel="stylesheet" type="text/css" href="./css/style.css" />
+    <script type="text/javascript" language="javascript" src="./js/zepto.min.js"></script>
+    <script type="text/javascript" language="javascript" src="./layer_mobile/layer.js"></script>
 </head>
 <style>
-	body{ background:#fff;}
+    body{ background:#fff;}
 </style>
+
 <body>
-<div class="header clearfix">
-       <a class="left" href="javascript:history.go(-1);"><b class="iconfont icon-chevron-copy"></b></a>
-       <span class="center">修改资金密码</span>
-</div>
-<div class="container">
-    <div class="main">
-        <div class="form-wrap mt10">
-            <div class="icon-form" id="form-input">
-                <ul>
-                    <li class="clearfix">
-                        <div class="icon">原密码
-                        </div>
-                        <div class="input">
-                            <input type="password" id="oldPwd" placeholder="请输入原密码">
-                        </div>
-                    </li>
-                    <li class="clearfix">
-                        <div class="icon">新密码
-                        </div>
-                        <div class="input">
-                            <input type="password" id="newPwd" placeholder="请输入新密码">
-                        </div>
-                    </li>
-                    <li class="clearfix">
-                        <div class="icon">确认密码
-                        </div>
-                        <div class="input">
-                            <input type="password" id="newPwd2" placeholder="请确认密码">
-                        </div>
-                    </li>
-                </ul>
-                <div class="mt20">
-                    <a href="javascript:void(0);" id="submitEditUserLogin" class="btnOrg btnsF16 btn-login">保存</a>
+    <div class="header clearfix">
+        <a class="left" href="javascript:history.go(-1);"><b class="iconfont icon-chevron-copy"></b></a>
+        <span class="center">修改资金密码</span>
+    </div>
+    <div class="container">
+        <div class="main">
+            <div class="form-wrap mt10">
+                <div class="icon-form" id="form-input">
+                    <ul>
+                        <li class="clearfix">
+                            <div class="icon">原密码
+                            </div>
+                            <div class="input">
+                                <input type="password" id="oldPwd" placeholder="请输入原密码">
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="icon">新密码
+                            </div>
+                            <div class="input">
+                                <input type="password" id="newPwd" placeholder="请输入新密码">
+                            </div>
+                        </li>
+                        <li class="clearfix">
+                            <div class="icon">确认密码
+                            </div>
+                            <div class="input">
+                                <input type="password" id="newPwd2" placeholder="请确认密码">
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="mt20">
+                        <a href="javascript:void(0);" id="submitEditUserLogin" class="btnOrg btnsF16 btn-login">保存</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-</div>
+    </div>
 </body>
 <script src="./js/jquery-1.11.3.min.js"></script>
 <script src="./js/jqMD.js"></script>
@@ -62,42 +67,43 @@
 <script src="./js/base.js"></script>
 <script src="./js/request.js"></script>
 <script type="text/javascript">
-	$(document).ready(function () {
-		$("#submitEditUserLogin").on("click", function (e) {
-			e.preventDefault();
-			var oldPwd = $("#oldPwd");
-			var newPwd = $("#newPwd");
-			var newPwd2 = $("#newPwd2");
-			if(oldPwd.val() == ''){
+    $(document).ready(function () {
+        $("#submitEditUserLogin").on("click", function (e) {
+            e.preventDefault();
+            var oldPwd = $("#oldPwd");
+            var newPwd = $("#newPwd");
+            var newPwd2 = $("#newPwd2");
+            if (oldPwd.val() == '') {
                 ONFIG._showMsg("请输入旧密码!");
-				return;
-			}
-			if(newPwd.val() == ''){
+                return;
+            }
+            if (newPwd.val() == '') {
                 ONFIG._showMsg("请输入新密码!");
-				return;
-			}
-			if(newPwd2.val() == ''){
+                return;
+            }
+            if (newPwd2.val() == '') {
                 ONFIG._showMsg("请输入再次输入密码!");
-				return;
-			}
-			if(newPwd2.val() != newPwd.val()){
+                return;
+            }
+            if (newPwd2.val() != newPwd.val()) {
                 ONFIG._showMsg("两次密码不一致,请重新输入!");
-				newPwd.val("");
-				newPwd2.val("");
-				return;
-			}
-			
-			Api.editUserLogin(oldPwd.val(),newPwd.val()).then(function(res) {
+                newPwd.val("");
+                newPwd2.val("");
+                return;
+            }
+
+            Api.editUserLogin(oldPwd.val(), newPwd.val()).then(function (res) {
                 CONFIG._showMsg(res.message);
                 CONFIG._logout();
                 setTimeout(() => {
                     window.location.href = "./login.html";
                 }, 1500);
-			})
-			
-		});
+            })
+
+        });
 
 
     });
 </script>
+
 </html>
